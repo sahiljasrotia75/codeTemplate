@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.template.views.uploaddocs.UploadDocsVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{vm::onClick}"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/documents"
+                android:textColor="@color/_242a37"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clDrivingLicense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintTop_toBottomOf="@id/clToolbar">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFrontLicense"
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="@dimen/_165sdp"
+                android:src="@drawable/ic_upload_docs"
+                app:layout_constraintEnd_toStartOf="@id/ivBackLicense"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFrontSide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:elevation="@dimen/_1sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/driving_licence_front_side"
+                android:textColor="#c1c1c3"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@id/ivFrontLicense"
+                app:layout_constraintEnd_toEndOf="@id/ivFrontLicense"
+                app:layout_constraintStart_toStartOf="@id/ivFrontLicense"
+                tools:text="@string/driving_licence_front_side" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBackSide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:elevation="@dimen/_1sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/driving_licence_back_side"
+                android:textColor="#c1c1c3"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@id/ivBackLicense"
+                app:layout_constraintEnd_toEndOf="@id/ivBackLicense"
+                app:layout_constraintStart_toStartOf="@id/ivBackLicense"
+                tools:text="@string/driving_licence_back_side" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBackLicense"
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="@dimen/_165sdp"
+                android:src="@drawable/ic_upload_docs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivFrontLicense"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:layout_constraintTop_toBottomOf="@id/clDrivingLicense">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLocationPin1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location_disabled"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivRoadLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_road_grey"
+                app:layout_constraintEnd_toEndOf="@id/ivLocationPin1"
+                app:layout_constraintStart_toStartOf="@id/ivLocationPin1"
+                app:layout_constraintTop_toBottomOf="@id/ivLocationPin1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLocationPin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location_disabled"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivRoadLine" />
+
+            <TextView
+                android:id="@+id/tvDrivingLicenseUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:letterSpacing="-0.03"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/driving_license_uploading"
+                android:textColor="@color/_1a1824"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@id/ivLocationPin1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/driving_license_uploading" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingExtra="2sp"
+                android:text="@string/license_uploading_text_placeholder"
+                android:textColor="#1a1824"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvDrivingLicenseUpload"
+                app:layout_constraintTop_toBottomOf="@id/tvDrivingLicenseUpload"
+                tools:text="@string/license_uploading_text_placeholder" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btUploading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginVertical="@dimen/_25sdp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center_horizontal"
+            android:text="@string/upload_next_document"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:onClick="@{vm::onClick}"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/upload_next_document" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

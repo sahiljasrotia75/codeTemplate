@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.template.views.profilesetup.ProfileSetupVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:onClick="@{viewModel::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/profile_setup"
+            android:textColor="@color/_242a37"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUser"
+            style="@style/circleImage"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/profile_holder"
+            app:layout_constraintBottom_toTopOf="@id/gdLoginOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCamera"
+            style="@style/circleImage"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="@id/ivUser"
+            app:layout_constraintStart_toStartOf="@id/ivUser"
+            app:layout_constraintTop_toBottomOf="@id/ivUser" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdLoginOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".35" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etFirstName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toTopOf="@id/viewOne"
+            app:layout_constraintEnd_toStartOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gdLoginOne">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/first_name"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.firstName}"
+                android:textColor="@color/_acacac"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/viewOne"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/_8f92a1"
+            app:layout_constraintBottom_toTopOf="@id/etEmail"
+            app:layout_constraintEnd_toStartOf="@id/viewFive"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/etFirstName" />
+
+        <View
+            android:id="@+id/viewFive"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/_8f92a1"
+            app:layout_constraintBottom_toBottomOf="@id/viewOne"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toEndOf="@id/viewOne"
+            app:layout_constraintTop_toTopOf="@id/viewOne" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLastName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/etFirstName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/etFirstName"
+            app:layout_constraintTop_toTopOf="@id/etFirstName">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/last_name"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.lastName}"
+                android:textColor="@color/_acacac"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            android:enabled="false"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toTopOf="@id/viewFour"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/viewOne">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_mail"
+                android:drawablePadding="@dimen/_10sdp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/your_email"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.email}"
+                android:textColor="@color/_acacac"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/viewFour"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/_8f92a1"
+            app:layout_constraintBottom_toTopOf="@id/etPassword"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            android:enabled="false"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toTopOf="@id/viewTwo"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/viewFour">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="@dimen/_10sdp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/your_phone"
+                android:inputType="phone"
+                android:text="@={viewModel.phone}"
+                android:textColor="@color/_acacac"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/viewTwo"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/_8f92a1"
+            app:layout_constraintBottom_toTopOf="@id/etConfirmPassword"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toTopOf="@id/viewThree"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/viewTwo">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_loc"
+                android:drawableEnd="@drawable/ic_nav"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/country_state_city"
+                android:inputType="text"
+                android:singleLine="true"
+                android:text="@={viewModel.address}"
+                android:textColor="@color/_acacac"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/viewThree"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/_8f92a1"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/button_bg"
+            android:elevation="0dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:onClick="@{viewModel::onClick}"
+            android:text="@string/submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/etLastName"
+            app:layout_constraintStart_toStartOf="@id/etFirstName"
+            app:layout_constraintTop_toBottomOf="@id/viewThree" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dignity_driver"
+    app:startDestination="@id/splash">
+
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.template.views.splash.Splash"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/login"
+            app:enterAnim="@anim/pop_enter"
+            app:exitAnim="@anim/exit"
+            app:popUpTo="@id/splash"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.template.views.login.Login"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
+        <action
+            android:id="@+id/action_login_to_home2"
+            app:destination="@id/home2"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_login_to_profileSetup"
+            app:destination="@id/profileSetup"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.template.views.forgotpassword.ForgotPassword"
+        android:label="ForgotPassword">
+        <action
+            android:id="@+id/action_forgotPassword_to_otpVerification"
+            app:destination="@id/otpVerification"
+            app:popUpTo="@id/forgotPassword"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.template.views.home.Home"
+        android:label="Home">
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.dignitycustomer.views.signup.SignUp"
+        android:label="SignUp">
+        <action
+            android:id="@+id/action_signUp_to_otpVerification"
+            app:destination="@id/otpVerification" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpVerification"
+        android:name="com.template.views.otpverification.OtpVerification"
+        android:label="OtpVerification">
+        <action
+            android:id="@+id/action_otpVerification_to_profileSetup"
+            app:destination="@id/profileSetup"
+            app:popUpTo="@id/otpVerification"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otpVerification_to_changePassword"
+            app:destination="@id/changePassword"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popUpTo="@id/otpVerification"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileSetup"
+        android:name="com.template.views.profilesetup.ProfileSetup"
+        android:label="ProfileSetup">
+        <action
+            android:id="@+id/action_profileSetup_to_uploadDocs"
+            app:destination="@id/uploadDocs" />
+        <action
+            android:id="@+id/action_profileSetup_to_login"
+            app:destination="@id/login"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadDocs"
+        android:name="com.template.views.uploaddocs.UploadDocs"
+        android:label="UploadDocs">
+        <action
+            android:id="@+id/action_uploadDocs_to_vehicleRegistration"
+            app:destination="@id/vehicleRegistration" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleRegistration"
+        android:name="com.template.views.vehicleregistration.VehicleRegistration"
+        android:label="VehicleRegistration">
+        <action
+            android:id="@+id/action_vehicleRegistration_to_welcome"
+            app:destination="@id/welcome"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.template.views.welcome.Welcome"
+        android:label="Welcome">
+        <action
+            android:id="@+id/action_welcome_to_home2"
+            app:destination="@id/home2"
+            app:popUpTo="@id/dignity_driver"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/notifications"
+        android:name="com.template.views.notifications.Notifications"
+        android:label="Notifications" />
+    <fragment
+        android:id="@+id/contactUs"
+        android:name="com.template.views.contactus.ContactUs"
+        android:label="ContactUs" />
+    <fragment
+        android:id="@+id/support"
+        android:name="com.template.views.support.Support"
+        android:label="Support">
+        <action
+            android:id="@+id/action_support_to_contactUs"
+            app:destination="@id/contactUs" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.template.views.profile.Profile"
+        android:label="Profile" />
+
+
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.template.views.chat.Chat"
+        android:label="Chat" />
+    <fragment
+        android:id="@+id/changePassword"
+        android:name="com.template.views.changepassword.ChangePassword"
+        android:label="ChangePassword" >
+        <action
+            android:id="@+id/action_changePassword_to_login"
+            app:destination="@id/login"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
